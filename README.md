@@ -12,6 +12,42 @@
 
 ![image](https://github.com/user-attachments/assets/154f6483-7375-41b6-8529-3f714ce6ce26)
 
+### 💡 Solução desejada:
+
+A empresa quer modernizar esse sistema para a AWS, seguindo as melhores práticas arquitetura em Cloud AWS, a nova arquitetura deve seguir as seguintes diretrizes:
+
+-  Ambiente Kubernetes;
+-  Banco de dados gerenciado (PaaS e Multi AZ);
+-  Backup de dados;
+-  Sistema para persistência de objetos (imagens, vídeos etc.);
+-  Segurança;
+
+### Passos a serem seguidos para realizar a migração do sistema:
+
+1) Antes da migração acontecer para a nova estrutura, precisamos fazer uma migração “lift-and-shift” ou “as-is”.
+2) Promover a modificação para a nova estrutura em Kubernetes.
+
+# Etapa 1: Migração As-Is
+
+- Quais atividades são necessárias para a migração?
+- Quais as ferramentas vão ser utilizadas?
+- Qual o diagrama da infraestrutura na AWS?
+- Como serão garantidos os requisitos de Segurança?
+- Como será realizado o processo de Backup?
+- Qual o custo da infraestrutura na AWS (AWS Calculator)? 
+
+# Etapa 2: Modernização/Kubernetes 
+
+- Quais atividades são necessárias para a migração?
+- Quais as ferramentas vão ser utilizadas?
+- Qual o diagrama da infraestrutura na AWS?
+- Como serão garantidos os requisitos de Segurança?
+- Como será realizado o processo de Backup?
+- Qual o custo da infraestrutura na AWS (AWS Calculator)? 
+
+# Conclusão 
+
+
 
 Usar o Amazon MGN permite migrar aplicações com interrupções mínimas de funcionamento para os clientes, tem como principal característica ajudar a simplificar, agilizar e reduzir os custos da migração de aplicações. Devemos instalar o WAS Replication Agent nos servidores, após isso, o Agent faz um handshake de autenticação no endpoint da API do AWS MGN que é criptografado com TLS 1.3
 O Replication Agent deve ser instalado em cada servidor para a fim de começar a replicar os dados na sub-rede da área de preparação
