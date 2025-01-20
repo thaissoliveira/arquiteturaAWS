@@ -45,8 +45,11 @@ A empresa quer modernizar esse sistema para a AWS, seguindo as melhores prática
 - Como será realizado o processo de Backup?
 - Qual o custo da infraestrutura na AWS (AWS Calculator)? 
 
-# Conclusão 
+# Conclusão
 
+- A migração será realizada de forma segura e rápida na ``Etapa 1``, garantindo a continuidade dos serviços no ambiente AWS.
+- A modernização para Kubernetes na ``Etapa 2`` trará maior escalabilidade, eficiência e aderência às boas práticas de arquitetura em nuvem.
+- As diretrizes para segurança e backup garantem a proteção dos dados e da infraestrutura em ambas as etapas.
 
 
 Usar o Amazon MGN permite migrar aplicações com interrupções mínimas de funcionamento para os clientes, tem como principal característica ajudar a simplificar, agilizar e reduzir os custos da migração de aplicações. Devemos instalar o WAS Replication Agent nos servidores, após isso, o Agent faz um handshake de autenticação no endpoint da API do AWS MGN que é criptografado com TLS 1.3
