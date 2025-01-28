@@ -52,6 +52,11 @@ A empresa quer modernizar esse sistema para a AWS, seguindo as melhores prática
 - As diretrizes para segurança e backup garantem a proteção dos dados e da infraestrutura em ambas as etapas.
 
 
+A validação de dados é uma opção que você pode adicionar à sua tarefa de replicação. A validação de dados acompanha o andamento da migração e valida incrementalmente novos dados à medida que são gravados no destino. 
+
+1) Inicialmente, o sistema interagirá com o banco de dados original. Use o AWS DMS para executar uma migração de carga total e, em seguida, configure a replicação contínua.
+2) Depois de verificar se os dados estão fluindo corretamente e supondo que você tenha testado a aplicação com o novo banco de dados, você mudará a aplicação para interagir com o novo banco de dados. Isso interromperá a replicação contínua.
+3) 
 Usar o Amazon MGN permite migrar aplicações com interrupções mínimas de funcionamento para os clientes, tem como principal característica ajudar a simplificar, agilizar e reduzir os custos da migração de aplicações. Devemos instalar o WAS Replication Agent nos servidores, após isso, o Agent faz um handshake de autenticação no endpoint da API do AWS MGN que é criptografado com TLS 1.3
 O Replication Agent deve ser instalado em cada servidor para a fim de começar a replicar os dados na sub-rede da área de preparação
 ![image](https://github.com/user-attachments/assets/f0435d05-7063-4569-bdd7-0cbb6b9c3180)
@@ -60,6 +65,10 @@ O Replication Agent deve ser instalado em cada servidor para a fim de começar a
 ![image](https://github.com/user-attachments/assets/2b43e288-ec29-406b-a3a7-cf5093f5fca8)
 ![image](https://github.com/user-attachments/assets/ed263a27-1508-4161-a0e6-300d3c0bdd94)
 ![image](https://github.com/user-attachments/assets/11254f46-a8f2-4c96-aa19-4defbfede3e5)
+![image](https://github.com/user-attachments/assets/1f728b9f-8dbf-4fb5-b7a0-4c61bede4bf1)
+![image](https://github.com/user-attachments/assets/c984f84a-2b37-42b3-bc6f-f2dff44ff348)
+
+
 
 
 
