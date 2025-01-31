@@ -97,11 +97,11 @@ Algumas das soluções escolhidas para garantir a segurança dos dados e informa
 
 ### ✳️ Qual o custo da infraestrutura na AWS (AWS Calculator)? 
 
-- Custo de migração
+**Custo de migração**
 
 ![Image](https://github.com/user-attachments/assets/997b6d96-6380-46dc-a35d-67645abc9b3f)
 
-- Custo mensal na etapa 1
+**Custo mensal na Etapa 1**
 
 ![Image](https://github.com/user-attachments/assets/91d4b278-e51f-46bd-9e46-65fed0f832ab)
 
@@ -110,15 +110,15 @@ Algumas das soluções escolhidas para garantir a segurança dos dados e informa
 ### ✳️ Quais atividades são necessárias para a migração?
 
 
-## 1️⃣ Planejamento e Análise
-Nesta fase, é fundamental entender como a aplicação funciona no ambiente atual e como ela será adaptada para a AWS. Para isso, algumas ações são necessárias:
+#### 1️⃣ Planejamento e Análise
 
 - Levantar os requisitos da aplicação, incluindo dependências do frontend, backend e banco de dados.
 - Definir a arquitetura da AWS, garantindo alta disponibilidade e distribuindo os serviços em diferentes Zonas de Disponibilidade (AZs).
 - Mapear conexões externas e integrações com outros serviços para garantir que a migração não afete funcionalidades essenciais.
 - Planejar a melhor estratégia de migração, levando em conta tempo de inatividade, custos e impacto operacional.
 
-## 2️⃣ Preparação do Ambiente AWS
+#### 2️⃣ Preparação do Ambiente AWS
+
 Após o planejamento, o próximo passo é preparar a infraestrutura na AWS. Isso inclui:
 
 - Criar uma VPC (Virtual Private Cloud) para isolar os recursos de rede da aplicação.
@@ -128,7 +128,8 @@ Após o planejamento, o próximo passo é preparar a infraestrutura na AWS. Isso
 - Configurar um Elastic Load Balancer (ELB) para distribuir o tráfego de maneira eficiente entre os serviços, garantindo disponibilidade e balanceamento de carga.
 - Criar as permissões adequadas no IAM (Identity and Access Management) para que cada serviço tenha apenas o acesso necessário.
 
-## 3️⃣ Containerização e Deploy no EKS
+#### 3️⃣ Containerização e Deploy no EKS
+
 Com a infraestrutura pronta, a aplicação precisa ser empacotada em containers para ser executada no Kubernetes. Isso envolve:
 
 - Converter o backend e o frontend em containers usando Docker, garantindo que os serviços possam rodar de forma isolada e padronizada.
@@ -137,14 +138,16 @@ Com a infraestrutura pronta, a aplicação precisa ser empacotada em containers 
 - Configurar ConfigMaps e Secrets para armazenar configurações e credenciais sensíveis de maneira segura.
 - Implementar um sistema de escalabilidade automática (Horizontal Pod Autoscaler - HPA) para ajustar dinamicamente a quantidade de réplicas dos serviços com base na demanda.
 
-## 4️⃣ Banco de Dados e Migração de Dados
+#### 4️⃣ Banco de Dados e Migração de Dados
+
 A base de dados também precisa ser migrada para a AWS sem comprometer a integridade dos dados. Os passos incluem:
 
 - Configurar um banco de dados gerenciado no Amazon RDS, garantindo que ele esteja em modo Multi-AZ para alta disponibilidade.
 - Utilizar o AWS Database Migration Service (DMS) para transferir os dados do banco original para o RDS de forma segura e eficiente.
 - Validar a integridade dos dados após a migração, garantindo que nenhuma informação foi perdida ou corrompida.
 
-## 5️⃣ Testes e Validação
+#### 5️⃣ Testes e Validação
+
 Antes de colocar a aplicação em produção, é essencial realizar testes rigorosos para garantir que tudo funcione conforme o esperado:
 
 - Verificar a comunicação entre os serviços dentro das subnets, garantindo que as permissões e regras de acesso estejam corretas.
@@ -152,7 +155,8 @@ Antes de colocar a aplicação em produção, é essencial realizar testes rigor
 - Validar a resiliência do ambiente ao simular falhas e analisar como o sistema se recupera.
 - Garantir que autenticação, permissões e integrações externas estão funcionando corretamente.
 
-## 6️⃣ Monitoramento, Segurança e Backup
+#### 6️⃣ Monitoramento, Segurança e Backup
+
 Após a migração, é necessário manter o ambiente monitorado e seguro para evitar falhas e ataques. Para isso:
 
 - Configurar o Amazon CloudWatch para coletar logs, métricas e criar alertas automáticos.
@@ -164,17 +168,17 @@ Após a migração, é necessário manter o ambiente monitorado e seguro para ev
 
 ### ✳️ Quais ferramentas são necessárias?
 
-- Docker: Containerização dos serviços.
-- Kubernetes (EKS): Orquestração dos containers.
-- Elastic Load Balancer (ELB): Balanceamento de carga.
-- AWS RDS: Banco de dados gerenciado.
-- AWS DMS: Migração de banco de dados.
-- S3: Armazenamento de arquivos e backups.
-- IAM: Gerenciamento de permissões.
-- CloudWatch: Monitoramento e logs.
-- Secrets Manager: Armazenamento seguro de credenciais.
-- Terraform: Infraestrutura como código.
-- ECR: Repositório de imagens Docker.
+- **Docker:** Containerização dos serviços.
+- **Kubernetes (EKS):** Orquestração dos containers.
+- **Elastic Load Balancer (ELB):** Balanceamento de carga.
+- **AWS RDS:** Banco de dados gerenciado.
+- **AWS DMS:** Migração de banco de dados.
+- **S3:** Armazenamento de arquivos e backups.
+- **IAM:** Gerenciamento de permissões.
+- **CloudWatch:** Monitoramento e logs.
+- **Secrets Manager:** Armazenamento seguro de credenciais.
+- **Terraform:** Infraestrutura como código.
+- **ECR:** Repositório de imagens Docker.
 
 ### ✳️ Qual o diagrama da infraestrutura na AWS?
 
@@ -221,7 +225,7 @@ Após a migração, é necessário manter o ambiente monitorado e seguro para ev
 
 ### ✳️ Qual o custo da infraestrutura na AWS (AWS Calculator)? 
 
-Custo mensal da etapa 2, com uma arquitetura mordenizada:
+Custo mensal da ``Etapa 2`` (com arquitetura mordenizada):
 
 ![Image](https://github.com/user-attachments/assets/c33fec36-aed5-40bb-9446-1479e58b9122)
 
