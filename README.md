@@ -97,12 +97,12 @@ Algumas das soluções escolhidas para garantir a segurança dos dados e informa
 
 # Etapa 2: Modernização/Kubernetes 
 
-- Quais atividades são necessárias para a migração?
-- Quais as ferramentas vão ser utilizadas?
-- Qual o diagrama da infraestrutura na AWS?
-- Como serão garantidos os requisitos de Segurança?
-- Como será realizado o processo de Backup?
-- Qual o custo da infraestrutura na AWS (AWS Calculator)? 
+### ✳️ Quais atividades são necessárias para a migração?
+### ✳️ Quais ferramentas são necessárias?
+### ✳️ Qual o diagrama da infraestrutura na AWS?
+### ✳️ Como serão garantidos os requisitos de Segurança?
+### ✳️ Como será realizado o processo de Backup?
+### ✳️ Qual o custo da infraestrutura na AWS (AWS Calculator)? 
 
 # Conclusão
 
