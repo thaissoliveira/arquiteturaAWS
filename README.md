@@ -85,6 +85,8 @@ Para garantir a segurança da infraestrutura, serão implementadas políticas de
 
 ### ✳️ Como será realizado o processo de Backup?
 
+O processo de backup será realizado utilizando o AWS Backup, conforme representado na arquitetura da imagem. O AWS Backup será responsável por gerenciar automaticamente os backups das instâncias migradas e do banco de dados RDS.
+
 Algumas das soluções escolhidas para garantir a segurança dos dados e informações do sistema:
 
 - O RDS (serviço de banco de dados relacional da aws) usado na arquitetura tem suporte nativo para backups automáticos. É possível configurar backups automáticos diários e snapshots manuais para restaurações específicas.
@@ -95,9 +97,50 @@ Algumas das soluções escolhidas para garantir a segurança dos dados e informa
 
 ### ✳️ Qual o custo da infraestrutura na AWS (AWS Calculator)? 
 
+- Custo de migração
+
+![Custo de migração](https://github.com/user-attachments/assets/07eb6515-b544-46cd-87ce-247b38e22fab)
+
+- Custo mensal na etapa 1
+
+![projeto arquitetura aws-etapa 1 drawio](https://github.com/user-attachments/assets/07eb6515-b544-46cd-87ce-247b38e22fab)
+
 # Etapa 2: Modernização/Kubernetes 
 
 ### ✳️ Quais atividades são necessárias para a migração?
+
+1) Planejamento e Análise
+
+- Levantar requisitos da aplicação (frontend, backend e banco de dados).
+- Definir as zonas de disponibilidade (AZs) e a estrutura da VPC.
+- Mapear dependências externas e conexões entre serviços.
+
+2) Preparação do Ambiente na AWS
+
+- Criar a VPC, subnets (públicas e privadas) e configurar grupos de segurança.
+- Configurar o Amazon EKS para gerenciar os clusters de containers.
+- Provisionar o Elastic Load Balancer (ELB) para distribuir tráfego.
+- Configurar IAM Roles para permissões seguras.
+
+3) Migração dos Serviços
+
+- Containerizar aplicações backend e frontend com Docker.
+- Enviar imagens para o Elastic Container Registry (ECR).
+- Configurar deployment no EKS com Kubernetes.
+- Configurar banco de dados no RDS e migrar dados via AWS DMS.
+
+4) Testes e Validação
+
+- Testar comunicação entre serviços nas subnets.
+- Validar balanceamento de carga e escalabilidade.
+- Garantir que autenticações e permissões estão funcionando corretamente.
+
+5) Monitoramento e Otimização
+
+- Configurar CloudWatch e AWS Secrets Manager.
+- Implementar AWS Backup para bancos de dados e buckets S3.
+- Testar planos de recuperação de desastre.
+
 ### ✳️ Quais ferramentas são necessárias?
 ### ✳️ Qual o diagrama da infraestrutura na AWS?
 ### ✳️ Como serão garantidos os requisitos de Segurança?
