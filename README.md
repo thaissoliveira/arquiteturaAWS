@@ -99,11 +99,11 @@ Algumas das soluções escolhidas para garantir a segurança dos dados e informa
 
 - Custo de migração
 
-IMAGEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+![Image](https://github.com/user-attachments/assets/997b6d96-6380-46dc-a35d-67645abc9b3f)
 
 - Custo mensal na etapa 1
 
-IMAGEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+![Image](https://github.com/user-attachments/assets/91d4b278-e51f-46bd-9e46-65fed0f832ab)
 
 # Etapa 2: Modernização/Kubernetes 
 
@@ -178,7 +178,7 @@ Após a migração, é necessário manter o ambiente monitorado e seguro para ev
 
 ### ✳️ Qual o diagrama da infraestrutura na AWS?
 
-IMAGEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+![Image](https://github.com/user-attachments/assets/700f0928-975a-4fb0-b71d-fd2efa91dea0)
 
 ### ✳️ Como serão garantidos os requisitos de Segurança?
 
@@ -223,7 +223,7 @@ IMAGEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 
 Custo mensal da etapa 2, com uma arquitetura mordenizada:
 
-IMAGEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+![Image](https://github.com/user-attachments/assets/c33fec36-aed5-40bb-9446-1479e58b9122)
 
 # Conclusão
 
