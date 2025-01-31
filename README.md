@@ -99,11 +99,11 @@ Algumas das soluções escolhidas para garantir a segurança dos dados e informa
 
 - Custo de migração
 
-![Custo de migração](https://github.com/user-attachments/assets/07eb6515-b544-46cd-87ce-247b38e22fab)
+IMAGEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 
 - Custo mensal na etapa 1
 
-![projeto arquitetura aws-etapa 1 drawio](https://github.com/user-attachments/assets/07eb6515-b544-46cd-87ce-247b38e22fab)
+IMAGEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 
 # Etapa 2: Modernização/Kubernetes 
 
@@ -142,10 +142,67 @@ Algumas das soluções escolhidas para garantir a segurança dos dados e informa
 - Testar planos de recuperação de desastre.
 
 ### ✳️ Quais ferramentas são necessárias?
+
+- Docker: Containerização dos serviços.
+- Kubernetes (EKS): Orquestração dos containers.
+- Elastic Load Balancer (ELB): Balanceamento de carga.
+- AWS RDS: Banco de dados gerenciado.
+- AWS DMS: Migração de banco de dados.
+- S3: Armazenamento de arquivos e backups.
+- IAM: Gerenciamento de permissões.
+- CloudWatch: Monitoramento e logs.
+- Secrets Manager: Armazenamento seguro de credenciais.
+- Terraform: Infraestrutura como código.
+- ECR: Repositório de imagens Docker.
+
 ### ✳️ Qual o diagrama da infraestrutura na AWS?
+
+IMAGEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+
 ### ✳️ Como serão garantidos os requisitos de Segurança?
+
+1) Controle de Acesso
+
+- Uso de IAM Roles para limitar permissões.
+- Autenticação segura via Secrets Manager.
+
+2) Proteção contra Ataques
+
+- AWS WAF para evitar ataques DDoS e SQL Injection.
+- CloudFront para proteger contra acessos diretos.
+
+3) Isolamento de Rede
+
+- Subnets públicas para frontend e privadas para backend.
+- Comunicação segura via Security Groups e NACLs.
+
+4) Monitoramento e Auditoria
+
+- CloudWatch Logs e AWS GuardDuty para detecção de ameaças.
+- CloudTrail para auditoria de acessos.
+
 ### ✳️ Como será realizado o processo de Backup?
+
+1) Banco de Dados
+
+- AWS Backup configurado para RDS.
+- Snapshots automáticos e retenção conforme política definida.
+
+2) Armazenamento de Arquivos
+
+- Uso de S3 para backup de dados estáticos.
+- Versão habilitada no S3 para evitar perda de arquivos críticos.
+
+3) Recuperação de Desastres
+
+- Replicação entre AZs para alta disponibilidade.
+- Testes regulares para garantir integridade dos backups.
+
 ### ✳️ Qual o custo da infraestrutura na AWS (AWS Calculator)? 
+
+Custo mensal da etapa 2, com uma arquitetura mordenizada:
+
+IMAGEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 
 # Conclusão
 
