@@ -45,47 +45,53 @@ A partir disto, será configurada a infraestrutura AWS, incluindo a criação de
 
 ##### Recursos AWS utilizados e conceitos importantes:
 
-- VPC (Virtual Private Cloud) – Permite a criação de uma rede virtual isolada na AWS, onde são configuradas sub-redes públicas e privadas.
+- **VPC (Virtual Private Cloud):** Permite a criação de uma rede virtual isolada na AWS, onde são configuradas sub-redes públicas e privadas.
 
-- EC2 (Elastic Compute Cloud) – Proporciona instâncias de servidores na nuvem equivalentes ao ambiente on-premises atual.
+- **EC2 (Elastic Compute Cloud):** Proporciona instâncias de servidores na nuvem equivalentes ao ambiente on-premises atual.
 
-- RDS (Relational Database Service) – Serviço gerenciado de banco de dados relacional com Multi-AZ, proporciona alta disponibilidade e failover automático.
+- **RDS (Relational Database Service):** Serviço gerenciado de banco de dados relacional com Multi-AZ, proporciona alta disponibilidade e failover automático.
 
-- S3 (Simple Storage Service) – Armazena objetos (arquivos, backups, logs) de forma escalável e segura. Pode ser usado para armazenar dados de migração, logs de auditoria e backups.
+- **S3 (Simple Storage Service):** Armazena objetos (arquivos, backups, logs) de forma escalável e segura. Pode ser usado para armazenar dados de migração, logs de auditoria e backups.
 
-- IAM (Identity and Access Management) – Controla permissões e acesso a serviços AWS com base em usuários, grupos e funções.
+- **IAM (Identity and Access Management):** Controla permissões e acesso a serviços AWS com base em usuários, grupos e funções.
 
-- AWS CloudWatch – Serviço de monitoramento que coleta métricas de infraestrutura (CPU, memória, tráfego de rede), cria alertas e gera logs para acompanhar a performance dos serviços.
+- **AWS CloudWatch:** Serviço de monitoramento que coleta métricas de infraestrutura (CPU, memória, tráfego de rede), cria alertas e gera logs para acompanhar a performance dos serviços.
 
-- AWS MGN (Application Migration Service): Automatiza a replicação dos servidores on-premises (frontend, backend) para instâncias EC2 na AWS, facilitando a migração sem grandes alterações no código.
+- **AWS MGN (Application Migration Service):** Automatiza a replicação dos servidores on-premises (frontend, backend) para instâncias EC2 na AWS, facilitando a migração sem grandes alterações no código.
 
-- AWS Replication Agent: Agente responsável por enviar dados/arquivos do ambiente on-premises para a VPC de staging, onde o Replication Server processa e armazena em EBS temporariamente.
+- **AWS Replication Agent:** Agente responsável por enviar dados/arquivos do ambiente on-premises para a VPC de staging, onde o Replication Server processa e armazena em EBS temporariamente.
 
-- Replication Servers: Servidores intermediários responsáveis por processar os dados recebidos do Replication Agent e armazená-los temporariamente no EBS, garantindo que a migração ocorra de forma contínua e segura.
+- **Replication Servers:** Servidores intermediários responsáveis por processar os dados recebidos do Replication Agent e armazená-los temporariamente no EBS, garantindo que a migração ocorra de forma contínua e segura.
 
-- AWS EBS (Elastic Block Store): Fornece armazenamento persistente para instâncias EC2 e servidores de staging, garantindo que os dados permaneçam disponíveis mesmo após reinicializações.
+- **AWS EBS (Elastic Block Store):** Fornece armazenamento persistente para instâncias EC2 e servidores de staging, garantindo que os dados permaneçam disponíveis mesmo após reinicializações.
 
-- AWS DMS (Database Migration Service): Serviço para migração de bancos de dados, utilizado para migrar um banco MySQL on-premises para Amazon RDS (MySQL) com mínima interrupção no serviço.
+- **AWS DMS (Database Migration Service):** Serviço para migração de bancos de dados, utilizado para migrar um banco MySQL on-premises para Amazon RDS (MySQL) com mínima interrupção no serviço.
 
-- Load Balancer (opcional): Distribui requisições HTTP/HTTPS entre instâncias EC2 (frontend e backend), melhorando a disponibilidade e balanceando a carga de tráfego.
+- **Load Balancer:** Distribui requisições HTTP/HTTPS entre instâncias EC2 (frontend e backend), melhorando a disponibilidade e balanceando a carga de tráfego.
 
-- AWS Router 53: Serviço de DNS gerenciado, permitindo rotear tráfego para diferentes instâncias EC2, Load Balancers ou serviços AWS, além de oferecer alta disponibilidade e baixa latência.
+- **AWS Router 53:** Serviço de DNS gerenciado, permitindo rotear tráfego para diferentes instâncias EC2, Load Balancers ou serviços AWS, além de oferecer alta disponibilidade e baixa latência.
 
-- Amazon Cloud Front: Serviço de CDN (Content Delivery Network) que acelera a entrega de conteúdos estáticos e dinâmicos ao distribuir cópias em locais estratégicos (Edge Locations), reduzindo a latência.
+- **Amazon Cloud Front:** Serviço de CDN (Content Delivery Network) que acelera a entrega de conteúdos estáticos e dinâmicos ao distribuir cópias em locais estratégicos (Edge Locations), reduzindo a latência.
 
-- AWS WAF (Web Application Firewall): Firewall para proteger aplicações contra ameaças como SQL Injection, Cross-Site Scripting (XSS) e ataques de negação de serviço (DDoS).
+- **AWS WAF (Web Application Firewall):** Firewall para proteger aplicações contra ameaças como SQL Injection, Cross-Site Scripting (XSS) e ataques de negação de serviço (DDoS).
 
-- WAS SNS (Simple Notification Service): Serviço de notificação e comunicação assíncrona. Pode ser utilizado para alertar administradores sobre eventos críticos, como falhas na migração ou alta carga no sistema.
+- **WAS SNS (Simple Notification Service):** Serviço de notificação e comunicação assíncrona. Pode ser utilizado para alertar administradores sobre eventos críticos, como falhas na migração ou alta carga no sistema.
 
-- AWS Secrets Manager: Gerencia credenciais e segredos sensíveis (como senhas de banco de dados e chaves de API) de forma segura, evitando a exposição dessas informações no código-fonte.
-
-- AWS CloudTrail – Serviço de auditoria e monitoramento, que registra todas as ações realizadas na conta AWS, permitindo rastrear atividades e garantir conformidade com políticas de segurança.
+- **AWS Secrets Manager:** Gerencia credenciais e segredos sensíveis (como senhas de banco de dados e chaves de API) de forma segura, evitando a exposição dessas informações no código-fonte.
 
 ### ✳️ Como serão garantidos os requisitos de Segurança?
 
 Para garantir a segurança da infraestrutura, serão implementadas políticas de IAM, Security Groups e NACLs, além da habilitação de criptografia em trânsito e em repouso. A política de backup será gerenciada pelo AWS Backup, assegurando cópias automáticas de RDS, S3 e EC2. Após a migração, testes de validação serão conduzidos para garantir que todas as aplicações e serviços estejam operando conforme esperado.
 
 ### ✳️ Como será realizado o processo de Backup?
+
+Algumas das soluções escolhidas para garantir a segurança dos dados e informações do sistema:
+
+- O RDS (serviço de banco de dados relacional da aws) usado na arquitetura tem suporte nativo para backups automáticos. É possível configurar backups automáticos diários e snapshots manuais para restaurações específicas.
+- Os backups do RDS são armazenados no Amazon S3 de forma segura e podem ser retidos por períodos configuráveis.
+- Uso do AWS Backup, que oferece uma solução centralizada para gerenciar backups de EC2, RDS, EBS, e S3.
+- É feita a replicação entre regiões (multi-region replication) para aumentar a resiliência.
+- A presença de balanceadores de carga (Load Balancers) e múltiplas instâncias em sub-redes públicas e privadas sugere um foco em alta disponibilidade, o que reduz a necessidade de restauração frequente em caso de falhas.
 
 ### ✳️ Qual o custo da infraestrutura na AWS (AWS Calculator)? 
 
