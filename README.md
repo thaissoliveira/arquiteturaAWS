@@ -109,8 +109,9 @@ Algumas das soluções escolhidas para garantir a segurança dos dados e informa
 
 ### ✳️ Quais atividades são necessárias para a migração?
 
-
 #### 1️⃣ Planejamento e Análise
+
+Levando em conta o pós migração e pensando na modernização da aplicação, devemos primeiro planejar, ou seja:
 
 - Levantar os requisitos da aplicação, incluindo dependências do frontend, backend e banco de dados.
 - Definir a arquitetura da AWS, garantindo alta disponibilidade e distribuindo os serviços em diferentes Zonas de Disponibilidade (AZs).
@@ -186,25 +187,13 @@ Após a migração, é necessário manter o ambiente monitorado e seguro para ev
 
 ### ✳️ Como serão garantidos os requisitos de Segurança?
 
-1) Controle de Acesso
+O **Controle de Acesso** será gerenciado pelo uso de IAM Roles para limitar permissões e autenticação segura via Secrets Manager.
 
-- Uso de IAM Roles para limitar permissões.
-- Autenticação segura via Secrets Manager.
+A Proteção contra Ataques é feita pelo AWS WAF para evitar ataques DDoS e SQL Injection. E o CloudFront serve para proteger contra acessos diretos.
 
-2) Proteção contra Ataques
+O Isolamento de Rede será implementado com subnets públicas para o frontend e subnets privadas para o backend, garantindo comunicação segura por meio de Security Groups e NACLs.
 
-- AWS WAF para evitar ataques DDoS e SQL Injection.
-- CloudFront para proteger contra acessos diretos.
-
-3) Isolamento de Rede
-
-- Subnets públicas para frontend e privadas para backend.
-- Comunicação segura via Security Groups e NACLs.
-
-4) Monitoramento e Auditoria
-
-- CloudWatch Logs e AWS GuardDuty para detecção de ameaças.
-- CloudTrail para auditoria de acessos.
+O Monitoramento e Auditoria será realizado com CloudWatch Logs e AWS GuardDuty para a detecção de ameaças, enquanto o CloudTrail será utilizado para auditoria de acessos.
 
 ### ✳️ Como será realizado o processo de Backup?
 
