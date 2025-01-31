@@ -109,37 +109,45 @@ IMAGEMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 
 ### ✳️ Quais atividades são necessárias para a migração?
 
-1) Planejamento e Análise
+## 1️⃣ Planejamento e Análise
+- 🔹 Identificar os requisitos específicos da aplicação (frontend, backend e banco de dados).
+- 🔹 Definir a arquitetura de **alta disponibilidade** e as **Zonas de Disponibilidade (AZs)**.
+- 🔹 Mapear dependências externas, serviços integrados e fluxos de dados.
+- 🔹 Planejar a estratégia de migração, minimizando impactos operacionais.
 
-- Levantar requisitos da aplicação (frontend, backend e banco de dados).
-- Definir as zonas de disponibilidade (AZs) e a estrutura da VPC.
-- Mapear dependências externas e conexões entre serviços.
+## 2️⃣ Preparação do Ambiente AWS
+- 🔹 Criar a **VPC** com subnets **públicas e privadas**, garantindo isolamento adequado.
+- 🔹 Configurar **grupos de segurança (Security Groups) e NACLs** para controle de acesso.
+- 🔹 Provisionar o **Amazon EKS**, definindo **Node Groups** e escalabilidade automática (**Cluster Autoscaler**).
+- 🔹 Criar e configurar o **Elastic Load Balancer (ELB)** para distribuição de tráfego eficiente.
+- 🔹 Definir **IAM Roles** para controlar permissões de acesso aos recursos AWS.
+- 🔹 Configurar o **Amazon RDS Multi-AZ** para garantir redundância do banco de dados.
 
-2) Preparação do Ambiente na AWS
+## 3️⃣ Containerização e Deploy no EKS
+- 🔹 **Containerizar aplicações** backend e frontend utilizando **Docker**.
+- 🔹 Criar e enviar imagens para o **Amazon Elastic Container Registry (ECR)**.
+- 🔹 Criar **manifests Kubernetes** para os deployments, services e configurações no **EKS**.
+- 🔹 Implementar **ConfigMaps e Secrets** para variáveis sensíveis da aplicação.
+- 🔹 Configurar **Horizontal Pod Autoscaler (HPA)** para ajuste dinâmico de cargas.
 
-- Criar a VPC, subnets (públicas e privadas) e configurar grupos de segurança.
-- Configurar o Amazon EKS para gerenciar os clusters de containers.
-- Provisionar o Elastic Load Balancer (ELB) para distribuir tráfego.
-- Configurar IAM Roles para permissões seguras.
+## 4️⃣ Banco de Dados e Migração de Dados
+- 🔹 Configurar **Amazon RDS Multi-AZ** para armazenar os dados de forma resiliente.
+- 🔹 Utilizar o **AWS Database Migration Service (DMS)** para migrar os dados.
+- 🔹 Validar a **integridade e consistência dos dados** após a migração.
 
-3) Migração dos Serviços
+## 5️⃣ Testes e Validação
+- 🔹 Validar **conectividade entre serviços** nas subnets.
+- 🔹 Simular **cargas de tráfego** para testar o balanceamento de carga (ELB).
+- 🔹 Testar a **resiliência da aplicação** em diferentes cenários de falha.
+- 🔹 Garantir que **autenticação e permissões** funcionam corretamente.
 
-- Containerizar aplicações backend e frontend com Docker.
-- Enviar imagens para o Elastic Container Registry (ECR).
-- Configurar deployment no EKS com Kubernetes.
-- Configurar banco de dados no RDS e migrar dados via AWS DMS.
+## 6️⃣ Monitoramento, Segurança e Backup
+- 🔹 Configurar **Amazon CloudWatch** para logs, métricas e alertas.
+- 🔹 Implementar **AWS Backup** para backups automatizados do **RDS e S3**.
+- 🔹 Configurar **AWS Secrets Manager** para gerenciamento seguro de credenciais.
+- 🔹 Habilitar **AWS WAF** e **Shield** para proteção contra ataques DDoS e outras ameaças.
+- 🔹 Monitorar **custos e consumo de recursos** para otimizar a infraestrutura.
 
-4) Testes e Validação
-
-- Testar comunicação entre serviços nas subnets.
-- Validar balanceamento de carga e escalabilidade.
-- Garantir que autenticações e permissões estão funcionando corretamente.
-
-5) Monitoramento e Otimização
-
-- Configurar CloudWatch e AWS Secrets Manager.
-- Implementar AWS Backup para bancos de dados e buckets S3.
-- Testar planos de recuperação de desastre.
 
 ### ✳️ Quais ferramentas são necessárias?
 
